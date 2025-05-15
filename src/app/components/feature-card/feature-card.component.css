@@ -1,0 +1,69 @@
+.feature-card {
+    background: #a855f7;
+    color: white;
+    border-radius: 16px;
+    padding: 2rem;
+    text-align: center;
+    width: 300px;
+    transition: transform 0.3s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+}
+
+.icon-container {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 0 auto 0.5rem;
+    border: 2px solid rgba(255, 255, 255, 0.863);
+}
+
+/* Make the icon itself white */
+.icon-container i {
+    color: white;
+    font-size: 1.8rem;
+}
+
+.feature-card-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 0.2rem;
+    color: #ffffff;
+}
+
+.feature-card-description {
+    color: #ffffff;
+    line-height: 1.5;
+}
+
+/* Color variants for the entire card */
+.feature-card.purple {
+    background: #a855f7;
+}
+
+.feature-card.teal {
+    background: #14b8a6;
+}
+
+.feature-card.blue {
+    background: #6366f1;
+}
+
+/* Icon container variants */
+.feature-card.purple .icon-container {
+    background: #a855f7;
+}
+
+.feature-card.teal .icon-container {
+    background: #14b8a6;
+}
+
+.feature-card.blue .icon-container {
+    background: #6366f1;
+}

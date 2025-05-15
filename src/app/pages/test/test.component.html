@@ -1,0 +1,32 @@
+<div>
+    <button (click)="toggleHighlight()">Toggle HighLight</button>
+</div>
+
+<div [ngClass]="{'highlight': isHighlighted, 'non-highlight': !isHighlighted}">
+    Sample Text for toggle highlight
+</div>
+
+<div class ='user-form'>
+    <div class="group">
+        <label for="name">Name:</label>
+        <input type="text" id="name" [(ngModel)]="newUser.name" placeholder="Enter your name" />
+    </div>
+
+    <div class="group">
+    <label for="email">Email:</label>
+    <input type="text" id="email" [(ngModel)]="newUser.email" placeholder="Enter your name" />
+    </div>
+
+    <div class="group">
+    <label for="phone">Phone:</label>
+    <input type="text" id="name" [(ngModel)]="newUser.phone" placeholder="Enter your name" />
+    </div>
+
+    <div class="group">
+    <label for="id">ID :</label>
+    <input type="number" id="id" [(ngModel)]="newUser.id" placeholder="Enter your ID" />
+    </div>
+
+    <button (click)="addUser()">Add User</button>
+</div>
+

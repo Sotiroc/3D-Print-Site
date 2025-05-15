@@ -1,0 +1,81 @@
+<div class="quote-container">
+  <div class="quote-content">
+    <h1 class="quote-title">Get a 3D Print Quote</h1>
+    <p class="quote-description">
+      Enter the dimensions of your 3D print to calculate the cost.
+    </p>
+    
+    <div class="quote-card">
+      <form [formGroup]="printForm" (ngSubmit)="calculateCost()">
+        <div class="form-group">
+          <label for="width">Width (cm)</label>
+          <input 
+            type="number" 
+            id="width" 
+            formControlName="width" 
+            placeholder="Enter width" 
+            min="0.1" 
+            step="0.1"
+          >
+          <div class="error-message" *ngIf="submitted && f['width'].errors">
+            <span *ngIf="f['width'].errors['required']">Width is required</span>
+            <span *ngIf="f['width'].errors['min']">Width must be at least 0.1 cm</span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="height">Height (cm)</label>
+          <input 
+            type="number" 
+            id="height" 
+            formControlName="height" 
+            placeholder="Enter height" 
+            min="0.1" 
+            step="0.1"
+          >
+          <div class="error-message" *ngIf="submitted && f['height'].errors">
+            <span *ngIf="f['height'].errors['required']">Height is required</span>
+            <span *ngIf="f['height'].errors['min']">Height must be at least 0.1 cm</span>
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <label for="length">Length (cm)</label>
+          <input 
+            type="number" 
+            id="length" 
+            formControlName="length" 
+            placeholder="Enter length" 
+            min="0.1" 
+            step="0.1"
+          >
+          <div class="error-message" *ngIf="submitted && f['length'].errors">
+            <span *ngIf="f['length'].errors['required']">Length is required</span>
+            <span *ngIf="f['length'].errors['min']">Length must be at least 0.1 cm</span>
+          </div>
+        </div>
+        <app-button label="Calculate Cost" type="submit" styleClass="primary" class="calculate-button"></app-button>
+      </form>
+      
+      <div class="results" *ngIf="calculationComplete">
+        <h2>Quote Results</h2>
+        <div class="result-item">
+          <span class="result-label">Volume:</span>
+          <span class="result-value">{{ volume.toFixed(2) }} cm³</span>
+        </div>
+        <div class="result-item">
+          <span class="result-label">Estimated Weight:</span>
+          <span class="result-value">{{ weight.toFixed(2) }} g</span>
+        </div>
+        <div class="result-item">
+          <span class="result-label">Material Cost:</span>
+          <span class="result-value">R{{ cost.toFixed(2) }}</span>
+        </div>
+        <p class="result-note">
+          Note: This is an estimate based on material cost only. 
+          Additional charges may apply for printing time, setup, and finishing.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

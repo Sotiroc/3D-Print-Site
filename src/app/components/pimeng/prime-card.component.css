@@ -1,0 +1,25 @@
+.footer-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 0.25rem;
+}
+
+.savebut ::ng-deep .p-button {
+    background-color: #3b82f6; /* Change to your desired color */
+    color: rgb(255, 255, 255); /* Text color */
+    border: none; /* Optional: Remove border */
+}
+
+.savebut ::ng-deep .p-button:hover {
+    background-color: #0042ac; /* Change hover color */
+}
+
+.prime-card {
+    width: 25rem;
+    overflow: hidden;
+    box-shadow: 0px 0px 20px 0px rgba(255, 0, 0, 0.8); /* Red shadow */
+    margin-bottom: 1rem;
+}
+

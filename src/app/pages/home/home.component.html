@@ -1,0 +1,56 @@
+<div class="home-container">
+
+    <div class="hero-section">
+      <h1 class="hero-title">
+        <span class="hero-title-line">Welcome to</span>
+        <span class="hero-title-highlight">Your Company</span>
+      </h1>
+      
+      <p class="hero-description">
+        We provide the best services for your needs. High quality solutions tailored to your requirements.
+      </p>
+      <div class="cta-buttons">
+        <app-button label="Get a Quote" styleClass="primary" [routerLink]="'/quote'"></app-button>
+        <app-button label="Learn More" styleClass="secondary"></app-button>
+        <app-button label="Funky" styleClass="funky" (buttonClick)="openFunkyCard()"></app-button>
+        <!-- Listening for the buttonClick event which is called by onClick() which is linked to the emit -->
+      </div>
+    </div>
+
+    <!-- <div class="primecard">
+      
+      <prime-card 
+        imageSrc="app/img/PrintTech.jpg"
+        cardTitle="High Quality Printing"
+        cardContent="We use the latest technology and high-quality materials to ensure that your prints are vibrant and long-lasting."
+        >
+      </prime-card>
+
+      <prime-card 
+      imageSrc="app/img/FAST.jpg"
+      cardTitle="Fast Turnaround"
+      cardContent="We understand the importance of time. Our efficient processes ensure that your projects are completed quickly without compromising quality."
+      >
+      
+      </prime-card>
+    </div> -->
+
+<div class="feature-cards-container">
+      <app-feature-card
+      title="Quality"
+      description="Industy-leading quality and precision."
+      iconClass="fa-solid fa-star"
+      styleClass="teal">
+    </app-feature-card>
+
+    <app-feature-card
+    title="Fast Turnaround"
+    description="Get your prints done in record time."
+    iconClass="fa-solid fa-truck-fast"
+    styleClass="blue">
+  </app-feature-card>
+</div>
+    <div class="overlay" *ngIf="showFunkyCard"></div>
+    <app-funky-card *ngIf="showFunkyCard" (close)="showFunkyCard = false"></app-funky-card>
+
+  </div>

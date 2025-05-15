@@ -1,0 +1,107 @@
+<nav class="navbar">
+    <div class="navbar-container">
+      <div class="navbar-brand">
+        <span class="brand-text">YourBrand</span>
+      </div>
+      
+      <!-- Desktop menu -->
+      <div class="desktop-menu">
+        <a 
+          routerLink="/" 
+          routerLinkActive="active" 
+          [routerLinkActiveOptions]="{exact: true}"
+          class="nav-link"
+        >
+          Home
+        </a>
+        <a 
+          routerLink="/quote" 
+          routerLinkActive="active"
+          class="nav-link"
+        >
+          Get Quote
+        </a>
+
+        <a 
+        routerLink="/calcprint" 
+        routerLinkActive="active"
+        class="nav-link"
+      >
+        Print Calculation
+      </a>
+
+      <a 
+        routerLink="/login" 
+        routerLinkActive="active" 
+        class="nav-link" 
+        (click)="openLoginModal()">
+        Log in
+      </a>
+
+      
+      <a 
+      routerLink="/test" 
+      routerLinkActive="active" 
+      class="nav-link" 
+      >
+      Test
+    </a>
+      </div>
+      
+      <!-- Mobile menu button -->
+      <div class="mobile-menu-button">
+        <button 
+          (click)="toggleMobileMenu()" 
+          type="button" 
+          class="menu-toggle"
+          aria-controls="mobile-menu" 
+          [attr.aria-expanded]="mobileMenuOpen"
+        >
+          <span class="sr-only">Open main menu</span>
+          @if (!mobileMenuOpen) {
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M4 6H20M4 12H20M4 18H20" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          } @else {
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M6 18L18 6M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          }
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile menu -->
+    <div 
+      id="mobile-menu" 
+      class="mobile-menu" 
+      [ngClass]="{'open': mobileMenuOpen}"
+    >
+      <a 
+        routerLink="/" 
+        routerLinkActive="active" 
+        [routerLinkActiveOptions]="{exact: true}"
+        class="mobile-nav-link"
+        (click)="mobileMenuOpen = false"
+      >
+        Home
+      </a>
+      <a 
+        routerLink="/quote" 
+        routerLinkActive="active"
+        class="mobile-nav-link"
+        (click)="mobileMenuOpen = false"
+      >
+        Get Quote
+      </a>
+
+    </div>
+
+    <!-- Login Modal -->
+    <div class="modal" *ngIf="isLoginModalOpen">
+      <div class="modal-content">
+        <span class="close" (click)="closeLoginModal()">&times;</span>
+        <app-login></app-login>
+      </div>
+    </div>
+  </nav>
